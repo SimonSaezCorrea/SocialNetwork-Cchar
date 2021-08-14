@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    class Comment : Information
+    public class Comment : Information
     {
         /**
          * Constructor

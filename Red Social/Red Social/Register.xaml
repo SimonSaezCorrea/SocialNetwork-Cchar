@@ -1,20 +1,20 @@
-﻿<Window x:Class="Red_Social.MainWindow"
+﻿<Window x:Class="Red_Social.Register"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Red_Social"
         mc:Ignorable="d"
-        Title="TheNewSocial" Height="400" Width="400">
+        Title="Register" Height="400" Width="400">
     <Grid>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="100,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="100,57,0,0" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="100,134,0,0" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS"/>
         <Button x:Name="Aceppt" Content="Aceptar" HorizontalAlignment="Left" Margin="157,216,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Aceppt_Click" FontFamily="Comic Sans MS"/>
-        <Button x:Name="Register" Content="Registrarse" HorizontalAlignment="Left" Margin="157,251,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Register_Click" FontFamily="Comic Sans MS"/>
-        <Button x:Name="Salir" Content="Salir" HorizontalAlignment="Left" Margin="332,329,0,0" VerticalAlignment="Top" Width="50" Height="30" FontFamily="Comic Sans MS" Click="Salir_Click"/>
-        <Label Content="Iniciar Sesion" HorizontalAlignment="Left" Margin="153,14,0,0" VerticalAlignment="Top" Width="91" FontFamily="Comic Sans MS"/>
+        <Button x:Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="157,251,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Cancelar_Click" FontFamily="Comic Sans MS"/>
+        <Button x:Name="Salir" Content="Salir" HorizontalAlignment="Left" Margin="332,329,0,0" VerticalAlignment="Top" Width="50" Height="30" FontFamily="Comic Sans MS"/>
+        <Label Content="Registro" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="79" FontFamily="Comic Sans MS"/>
 
     </Grid>
 </Window>

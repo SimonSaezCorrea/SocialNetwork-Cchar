@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    abstract class Information
+    public abstract class Information
     {
         private int id; // Es el id
         private User author; // Es el creador

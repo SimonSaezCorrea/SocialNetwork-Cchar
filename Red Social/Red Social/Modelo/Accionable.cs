@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    interface Accionable
+    public interface Accionable
     {
         bool Login(string name, string password);
 

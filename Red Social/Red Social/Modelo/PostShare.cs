@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    class PostShare
+    public class PostShare
     {
         private Post post; // El post compartido
         private DateTime date; // La fecha que se compartido

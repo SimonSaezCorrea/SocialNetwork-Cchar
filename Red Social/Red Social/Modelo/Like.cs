@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    class Like
+    public class Like
     {
         private int id; // El id del like
         private DateTime date; // La fecha de creacion del dato

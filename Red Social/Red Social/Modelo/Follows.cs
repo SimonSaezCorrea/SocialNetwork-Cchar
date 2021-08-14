@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    class Follows
+    public class Follows
     {
         private int amountFollows; // Cantidad de follows
         private List<User> listFollows; // Lista de usuarios que sigue o lo siguen

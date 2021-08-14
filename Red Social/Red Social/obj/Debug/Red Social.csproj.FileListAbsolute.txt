@@ -1,0 +1,19 @@
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\bin\Debug\Red Social.exe.config
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\bin\Debug\Red Social.exe
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\bin\Debug\Red Social.pdb
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.csproj.AssemblyReference.cache
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\App.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social_MarkupCompile.cache
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social_MarkupCompile.lref
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.g.resources
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red_Social.Properties.Resources.resources
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.csproj.GenerateResource.cache
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.csproj.CoreCompileInputs.cache
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.exe
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.pdb
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Interaccion.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\MainWindow.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Register.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Interaccion.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\MainWindow.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Register.baml

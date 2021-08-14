@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    class User
+    public class User
     {
         public int id; // Es el identificador de cada usuario
         private string name; // Es el nombre del usuario

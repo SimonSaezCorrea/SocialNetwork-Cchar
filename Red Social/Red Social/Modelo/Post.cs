@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    class Post : Information
+    public class Post : Information
     {
         private string typePost; // Determina el tipo de publicacion
         private int amountShare; // Cantidad de veces compartida

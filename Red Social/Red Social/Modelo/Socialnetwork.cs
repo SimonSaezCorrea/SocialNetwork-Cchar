@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    class Socialnetwork : Accionable
+    public class Socialnetwork : Accionable
     {
         private string name; // Nombre de la socialnetwork
         private DateTime date; // Fecha de creacion
