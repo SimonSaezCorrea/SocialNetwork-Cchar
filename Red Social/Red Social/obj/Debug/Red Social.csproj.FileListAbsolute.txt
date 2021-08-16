@@ -11,9 +11,11 @@ D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.csproj.
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.csproj.CoreCompileInputs.cache
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.exe
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Red Social.pdb
-D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Interaccion.g.cs
-D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\MainWindow.g.cs
-D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Register.g.cs
-D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Interaccion.baml
-D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\MainWindow.baml
-D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Register.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Interaccion.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\MainWindow.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Register.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Interaccion.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\MainWindow.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Register.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Posting.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Posting.baml

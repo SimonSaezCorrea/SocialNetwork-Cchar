@@ -59,22 +59,29 @@
     <Compile Include="Modelo\Comment.cs" />
     <Compile Include="Modelo\Follows.cs" />
     <Compile Include="Modelo\Information.cs" />
-    <Compile Include="Interaccion.xaml.cs">
+    <Compile Include="Vista\Posting.xaml.cs">
+      <DependentUpon>Posting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Interaccion.xaml.cs">
       <DependentUpon>Interaccion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Like.cs" />
     <Compile Include="Modelo\Post.cs" />
     <Compile Include="Modelo\PostShare.cs" />
-    <Compile Include="Register.xaml.cs">
+    <Compile Include="Vista\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Socialnetwork.cs" />
     <Compile Include="Modelo\User.cs" />
-    <Page Include="Interaccion.xaml">
+    <Page Include="Vista\Posting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Vista\Interaccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -82,11 +89,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Vista\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Register.xaml">
+    <Page Include="Vista\Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,8 +124,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vista\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

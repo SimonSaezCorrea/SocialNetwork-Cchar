@@ -1,0 +1,33 @@
+﻿<Window x:Class="Red_Social.Interaccion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Red_Social"
+        mc:Ignorable="d"
+        Title="TheNewSocial" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox Name="ListPost" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="20"></ColumnDefinition>
+                            <ColumnDefinition Width ="*"></ColumnDefinition>
+                            <ColumnDefinition Width ="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Id}"></TextBlock>
+                        <TextBlock Grid.Column="1" Text="{Binding Content}"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="{Binding Autor}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Name="CerrarSesion" Grid.Row="1" Width="100" Margin="682,70,10,10" Content="Cerrar Sesion" Click="CerrarSesion_Click"/>
+        <Button Content="Post" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Post_Click"/>
+    </Grid>
+</Window>
