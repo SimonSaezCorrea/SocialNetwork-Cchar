@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TheNewSocial" Height="450" Width="800">
     <Grid>
-        <Label Content="Posting" HorizontalAlignment="Left" Margin="340,10,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
+        <Label Content="Crear Publicacion" HorizontalAlignment="Left" Margin="340,10,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
         <ListBox Name="ListUser" HorizontalAlignment="Left" Height="293" Margin="452,83,0,0" VerticalAlignment="Top" Width="138">
             <ListBox.ItemTemplate>
                 <DataTemplate>

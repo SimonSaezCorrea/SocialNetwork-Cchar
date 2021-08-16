@@ -19,18 +19,21 @@ namespace Red_Social
     /// </summary>
     public partial class Interaccion : Window
     {
+        public static ListBox listaDePublicaciones;
         public Interaccion()
         {
             InitializeComponent();
-            List<Publicaciones> listPoblaciones = new List<Publicaciones>();
+            List<Publicaciones> listPublicaciones = new List<Publicaciones>();
 
-            listPoblaciones.Add(new Publicaciones() { Id = "ID", Content = "Contenido", Autor = "Autor" });
+            listPublicaciones.Add(new Publicaciones() { Id = "ID", Content = "Contenido", Autor = "Autor" });
 
             foreach (Post post in MainWindow.SN.GetListPost())
             {
-                listPoblaciones.Add(new Publicaciones() { Id = Convert.ToString(post.GetId()), Content = post.GetContent(), Autor = post.GetAuthor().GetName() });
+                listPublicaciones.Add(new Publicaciones() { Id = Convert.ToString(post.GetId()), Content = post.GetContent(), Autor = post.GetAuthor().GetName() });
             }
-            ListPost.ItemsSource = listPoblaciones;
+            ListPost.ItemsSource = listPublicaciones;
+            listaDePublicaciones = ListPost;
+            //listaDePublicaciones.Visibility = Visibility.Hidden;
         }
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -46,6 +49,18 @@ namespace Red_Social
             Hide();
             Posting P = new Posting();
             P.Show();
+        }
+
+        private void Abrir_Click(object sender, RoutedEventArgs e)
+        {
+            Publicaciones LP = (Publicaciones) ListPost.SelectedItem;
+            if (!LP.Id.Equals("ID"))
+            {
+                Hide();
+                AbrirPost AP = new AbrirPost();
+                AP.Show();
+            }
+            
         }
     }
 

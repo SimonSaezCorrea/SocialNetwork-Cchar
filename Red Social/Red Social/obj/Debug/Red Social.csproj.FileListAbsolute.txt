@@ -19,3 +19,5 @@ D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\MainWindow.b
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Register.baml
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Posting.g.cs
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Posting.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\AbrirPost.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\AbrirPost.baml

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vista\AbrirPost.xaml.cs">
+      <DependentUpon>AbrirPost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Accionable.cs" />
     <Compile Include="Modelo\Comment.cs" />
     <Compile Include="Modelo\Follows.cs" />
@@ -73,6 +76,10 @@
     </Compile>
     <Compile Include="Modelo\Socialnetwork.cs" />
     <Compile Include="Modelo\User.cs" />
+    <Page Include="Vista\AbrirPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\Posting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

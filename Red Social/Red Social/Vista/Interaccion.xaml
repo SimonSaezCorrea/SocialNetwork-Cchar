@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Red_Social"
         mc:Ignorable="d"
-        Title="TheNewSocial" Height="450" Width="800">
+        Title="TheNewSocial" Height="450" Width="805">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListBox Name="ListPost" HorizontalContentAlignment="Stretch">
+        <ListBox Name="ListPost" HorizontalContentAlignment="Stretch" Margin="0,31,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="2">
@@ -27,7 +27,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Name="CerrarSesion" Grid.Row="1" Width="100" Margin="682,70,10,10" Content="Cerrar Sesion" Click="CerrarSesion_Click"/>
-        <Button Content="Post" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Post_Click"/>
+        <Button Name="CerrarSesion" Grid.Row="1" Width="100" Margin="687,70,10,10" Content="Cerrar Sesion" Click="CerrarSesion_Click" FontFamily="Comic Sans MS"/>
+        <Button Name="Post" Content="Post" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Post_Click" FontFamily="Comic Sans MS"/>
+        <Button Name="Abrir" Content="Abrir Post" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="21" FontFamily="Comic Sans MS" Click="Abrir_Click"/>
+        <Label Content="Publicaciones" HorizontalAlignment="Left" Margin="361,0,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
     </Grid>
 </Window>
