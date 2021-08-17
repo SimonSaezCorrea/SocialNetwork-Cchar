@@ -27,19 +27,42 @@ namespace Red_Social
 
         private void Aceppt_Click(object sender, RoutedEventArgs e)
         {
-            if(MainWindow.SN.Register(Name.Text, Password.Text)){
-                Hide();
+            if (!Name.Text.Equals(""))
+            {
+                if (!Password.Text.Equals(""))
+                {
+                    if (MainWindow.SN.Register(Name.Text, Password.Text))
+                    {
+                        Hide();
 
-                Interaccion I = new Interaccion();
-                I.Show();
+                        Interaccion I = new Interaccion();
+                        I.Show();
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("El usuario existe");
+                    }
+                }
+                else
+                {
+                    _ = MessageBox.Show("Debe añadir una contraseña", "Error");
+                }
             }
             else
             {
-                _ = MessageBox.Show("Error, el usuario existe");
+                _ = MessageBox.Show("Debe añadir un usuario", "Error");
             }
+            
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            MainWindow MW = new MainWindow();
+            MW.Show();
+        }
+
+        private void Salir_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             MainWindow MW = new MainWindow();

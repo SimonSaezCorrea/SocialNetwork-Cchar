@@ -55,6 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vista\ComentarComentario.xaml.cs">
+      <DependentUpon>ComentarComentario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\AbrirComentario.xaml.cs">
+      <DependentUpon>AbrirComentario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Comentar.xaml.cs">
+      <DependentUpon>Comentar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\AbrirPost.xaml.cs">
       <DependentUpon>AbrirPost.xaml</DependentUpon>
     </Compile>
@@ -76,6 +85,18 @@
     </Compile>
     <Compile Include="Modelo\Socialnetwork.cs" />
     <Compile Include="Modelo\User.cs" />
+    <Page Include="Vista\ComentarComentario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\AbrirComentario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vista\Comentar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\AbrirPost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

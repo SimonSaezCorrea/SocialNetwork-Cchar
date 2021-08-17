@@ -53,14 +53,20 @@ namespace Red_Social
 
         private void Abrir_Click(object sender, RoutedEventArgs e)
         {
-            Publicaciones LP = (Publicaciones) ListPost.SelectedItem;
-            if (!LP.Id.Equals("ID"))
+            if(ListPost.SelectedItem != null)
             {
-                Hide();
-                AbrirPost AP = new AbrirPost();
-                AP.Show();
+                int index = ListPost.SelectedIndex;
+                if (index != 0)
+                {
+                    Hide();
+                    AbrirPost AP = new AbrirPost();
+                    AP.Show();
+                }
             }
-            
+            else
+            {
+                _ = MessageBox.Show("Debe elegir una publicacion","Error");
+            }  
         }
     }
 

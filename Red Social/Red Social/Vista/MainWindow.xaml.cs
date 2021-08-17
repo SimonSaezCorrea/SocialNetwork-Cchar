@@ -195,19 +195,33 @@ namespace Red_Social
         {
             string name = Name.Text;
             string pass = Password.Text;
-
-            if (SN.Login(name, pass))
+            if (!name.Equals(""))
             {
-                Hide();
+                if (!pass.Equals(""))
+                {
+                    if (SN.Login(name, pass))
+                    {
+                        Hide();
 
-                Interaccion I = new Interaccion();
-                I.Show();
+                        Interaccion I = new Interaccion();
+                        I.Show();
 
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("El usuario no existe", "");
+                    }
+                }
+                else
+                {
+                    _ = MessageBox.Show("Debe añadir una contraseña", "Error");
+                }
             }
             else
             {
-                _ = MessageBox.Show("Error, el usuario no existe");
+                _ = MessageBox.Show("Debe añadir un usuario", "Error");
             }
+            
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)

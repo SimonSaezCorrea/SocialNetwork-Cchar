@@ -44,33 +44,41 @@ namespace Red_Social
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
             string content = Contenido.Text;
-            if(ListUser_Elegidos.Items.Count > 1)
+            if (!content.Equals(""))
             {
-                List<string> listString = new List<string>();
-                List<Usuario> listUser_Elegidos = new List<Usuario>();
-                
-                foreach(Usuario user in ListUser_Elegidos.Items)
+                if (ListUser_Elegidos.Items.Count > 1)
                 {
-                    listUser_Elegidos.Add(user);
+                    List<string> listString = new List<string>();
+                    List<Usuario> listUser_Elegidos = new List<Usuario>();
+
+                    foreach (Usuario user in ListUser_Elegidos.Items)
+                    {
+                        listUser_Elegidos.Add(user);
+                    }
+
+                    for (int i = 1; i < listUser_Elegidos.Count; i++)
+                    {
+                        Usuario user = listUser_Elegidos[i];
+                        listString.Add(user.Name);
+                    }
+
+                    MainWindow.SN.Post("Text", content);
+                }
+                else
+                {
+                    MainWindow.SN.Post("text", content);
                 }
 
-                for (int i = 1; i < listUser_Elegidos.Count; i++)
-                {
-                    Usuario user = listUser_Elegidos[i];
-                    listString.Add(user.Name);
-                }
 
-                MainWindow.SN.Post("Text", content);
+                Hide();
+                Interaccion I = new Interaccion();
+                I.Show();
             }
             else
             {
-                MainWindow.SN.Post("text", content);
+                _ = MessageBox.Show("Debe añadir un contenido a la publicacion", "Error");
             }
             
-
-            Hide();
-            Interaccion I = new Interaccion();
-            I.Show();
         }
 
         private void Elegir_Click(object sender, RoutedEventArgs e)

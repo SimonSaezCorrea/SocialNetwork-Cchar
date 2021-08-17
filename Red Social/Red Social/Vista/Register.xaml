@@ -13,7 +13,7 @@
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="100,134,0,0" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS"/>
         <Button x:Name="Aceppt" Content="Aceptar" HorizontalAlignment="Left" Margin="157,216,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Aceppt_Click" FontFamily="Comic Sans MS"/>
         <Button x:Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="157,251,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Cancelar_Click" FontFamily="Comic Sans MS"/>
-        <Button x:Name="Salir" Content="Salir" HorizontalAlignment="Left" Margin="332,329,0,0" VerticalAlignment="Top" Width="50" Height="30" FontFamily="Comic Sans MS"/>
+        <Button x:Name="Salir" Content="Salir" HorizontalAlignment="Left" Margin="332,329,0,0" VerticalAlignment="Top" Width="50" Height="30" FontFamily="Comic Sans MS" Click="Salir_Click"/>
         <Label Content="Registro" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="79" FontFamily="Comic Sans MS"/>
 
     </Grid>

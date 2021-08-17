@@ -21,3 +21,9 @@ D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Posting.g.cs
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Posting.baml
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\AbrirPost.g.cs
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\AbrirPost.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\AbrirComentario.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Comentar.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\AbrirComentario.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Comentar.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\ComentarComentario.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\ComentarComentario.baml

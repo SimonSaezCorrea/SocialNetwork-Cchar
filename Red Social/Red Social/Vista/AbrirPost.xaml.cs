@@ -19,6 +19,7 @@ namespace Red_Social
     /// </summary>
     public partial class AbrirPost : Window
     {
+        public static ListBox ListaDeComentarios;
         public AbrirPost()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Red_Social
                 listPoblaciones.Add(new Comentarios() { Id = Convert.ToString(comment.GetId()), Content = comment.GetContent() });
             }
             ListComentarios.ItemsSource = listPoblaciones;
-            
+            ListaDeComentarios = ListComentarios;
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
@@ -46,6 +47,31 @@ namespace Red_Social
             Hide();
             Interaccion I = new Interaccion();
             I.Show();
+        }
+
+        private void Comentar_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            Comentar C = new Comentar();
+            C.Show();
+        }
+
+        private void VerComentario_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListComentarios.SelectedItem != null)
+            {
+                int index = ListComentarios.SelectedIndex;
+                if (index != 0)
+                {
+                    Hide();
+                    AbrirComentario AC = new AbrirComentario();
+                    AC.Show();
+                }
+            }
+            else
+            {
+                _ = MessageBox.Show("Debe elegir un comentario", "Error");
+            }
         }
     }
     public class Comentarios
