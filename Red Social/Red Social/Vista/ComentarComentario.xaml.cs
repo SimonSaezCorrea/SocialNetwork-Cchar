@@ -30,9 +30,8 @@ namespace Red_Social
             string content = Contenido.Text;
             if (!content.Equals(""))
             {
-                Comentarios Comentario = (Comentarios)AbrirPost.ListaDeComentarios.SelectedItem;
-                Comment comment = MainWindow.SN.SearchComment(Convert.ToInt32(Comentario.Id));
-                MainWindow.SN.Comment(comment, content);
+                Comment Comentario = (Comment)AbrirPost.ListaDeComentarios.SelectedItem;
+                MainWindow.SN.Comment(Comentario, content);
 
 
                 Hide();

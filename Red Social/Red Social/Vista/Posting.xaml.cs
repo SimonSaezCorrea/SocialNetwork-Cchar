@@ -23,18 +23,18 @@ namespace Red_Social
         {
             InitializeComponent();
 
-            List<Usuario> listUser = new List<Usuario>();
-            List<Usuario> listUser_Elegidos = new List<Usuario>();
+            List<User> listUser = new List<User>();
+            List<User> listUser_Elegidos = new List<User>();
 
 
-            listUser.Add(new Usuario() { Name = "Nombre" });
-            listUser_Elegidos.Add(new Usuario() { Name = "Nombre" });
+            listUser.Add(new User() { Name = "Nombre" });
+            listUser_Elegidos.Add(new User() { Name = "Nombre" });
 
-            foreach (User user in MainWindow.SN.GetListUser())
+            foreach (User user in MainWindow.SN.ListUser)
             {
-                if (!user.GetName().Equals(MainWindow.SN.SearchUserActive().GetName()))
+                if (!user.Equals(MainWindow.SN.SearchUserActive()))
                 {
-                    listUser.Add(new Usuario() { Name = user.GetName() });
+                    listUser.Add(user);
                 }
             }
             ListUser.ItemsSource = listUser;
@@ -49,16 +49,16 @@ namespace Red_Social
                 if (ListUser_Elegidos.Items.Count > 1)
                 {
                     List<string> listString = new List<string>();
-                    List<Usuario> listUser_Elegidos = new List<Usuario>();
+                    List<User> listUser_Elegidos = new List<User>();
 
-                    foreach (Usuario user in ListUser_Elegidos.Items)
+                    foreach (User user in ListUser_Elegidos.Items)
                     {
                         listUser_Elegidos.Add(user);
                     }
 
                     for (int i = 1; i < listUser_Elegidos.Count; i++)
                     {
-                        Usuario user = listUser_Elegidos[i];
+                        User user = listUser_Elegidos[i];
                         listString.Add(user.Name);
                     }
 
@@ -83,15 +83,15 @@ namespace Red_Social
 
         private void Elegir_Click(object sender, RoutedEventArgs e)
         {
-            List<Usuario> listUser = new List<Usuario>();
-            List<Usuario> newListUser = new List<Usuario>();
+            List<User> listUser = new List<User>();
+            List<User> newListUser = new List<User>();
 
-            foreach(Usuario content in ListUser_Elegidos.Items)
+            foreach(User content in ListUser_Elegidos.Items)
             {
                 newListUser.Add(content);
             }
 
-            foreach (Usuario content in ListUser.Items)
+            foreach (User content in ListUser.Items)
             {
                 if (content.Name.Equals("Nombre"))
                 {
@@ -112,15 +112,15 @@ namespace Red_Social
 
         private void Retornar_Click(object sender, RoutedEventArgs e)
         {
-            List<Usuario> listUser = new List<Usuario>();
-            List<Usuario> newListUser = new List<Usuario>();
+            List<User> listUser = new List<User>();
+            List<User> newListUser = new List<User>();
 
-            foreach (Usuario content in ListUser.Items)
+            foreach (User content in ListUser.Items)
             {
                 newListUser.Add(content);
             }
 
-            foreach (Usuario content in ListUser_Elegidos.Items)
+            foreach (User content in ListUser_Elegidos.Items)
             {
                 if (content.Name.Equals("Nombre"))
                 {
@@ -145,9 +145,5 @@ namespace Red_Social
             Interaccion I = new Interaccion();
             I.Show();
         }
-    }
-    public class Usuario
-    {
-        public string Name { get; set; }
     }
 }

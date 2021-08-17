@@ -23,20 +23,19 @@ namespace Red_Social
         public AbrirPost()
         {
             InitializeComponent();
-            Publicaciones publicacion = (Publicaciones)Interaccion.listaDePublicaciones.SelectedItem;
-            Post post = MainWindow.SN.SearchPost(Convert.ToInt32(publicacion.Id));
+            Post publicacion = (Post)Interaccion.listaDePublicaciones.SelectedItem;
 
-            Contenido.Text = post.GetContent();
-            Likes.Text = Convert.ToString(post.GetLike());
-            Autor.Text = post.GetAuthor().GetName();
-            CantShares.Text = Convert.ToString(post.GetAmountShare());
-            FechaPublicacion.Text = post.GetDate().ToString();
+            Contenido.Text = publicacion.Content;
+            Likes.Text = Convert.ToString(publicacion.Like);
+            Autor.Text = publicacion.Author.Name;
+            CantShares.Text = Convert.ToString(publicacion.AmountShare);
+            FechaPublicacion.Text = publicacion.Date.ToString();
             
-            List<Comentarios> listPoblaciones = new List<Comentarios>();
-            listPoblaciones.Add(new Comentarios() {Id = "ID", Content = "Comentarios" });
-            foreach (Comment comment in post.GetListComment())
+            List<Comment> listPoblaciones = new List<Comment>();
+            listPoblaciones.Add(new Comment() {Id = "ID", Content = "Comentarios" });
+            foreach (Comment comment in publicacion.ListComment)
             {
-                listPoblaciones.Add(new Comentarios() { Id = Convert.ToString(comment.GetId()), Content = comment.GetContent() });
+                listPoblaciones.Add(comment);
             }
             ListComentarios.ItemsSource = listPoblaciones;
             ListaDeComentarios = ListComentarios;
@@ -73,10 +72,5 @@ namespace Red_Social
                 _ = MessageBox.Show("Debe elegir un comentario", "Error");
             }
         }
-    }
-    public class Comentarios
-    {
-        public string Id { get; set; }
-        public string Content { get; set; }
     }
 }

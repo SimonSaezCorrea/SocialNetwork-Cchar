@@ -26,7 +26,7 @@ namespace Red_Social
 
         public MainWindow()
         {
-            if (SN.GetListUser().Count() == 0)
+            if (SN.ListUser.Count() == 0)
             {
                 _ = SN.Register("Simon", "123");
                 SN.Logout();
@@ -194,7 +194,7 @@ namespace Red_Social
         private void Aceppt_Click(object sender, RoutedEventArgs e)
         {
             string name = Name.Text;
-            string pass = Password.Text;
+            string pass = Password.Password;
             if (!name.Equals(""))
             {
                 if (!pass.Equals(""))

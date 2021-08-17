@@ -30,9 +30,8 @@ namespace Red_Social
             string content = Contenido.Text;
             if (!content.Equals(""))
             {
-                Publicaciones publicacion = (Publicaciones)Interaccion.listaDePublicaciones.SelectedItem;
-                Post post = MainWindow.SN.SearchPost(Convert.ToInt32(publicacion.Id));
-                MainWindow.SN.Comment(post, content);
+                Post publicacion = (Post)Interaccion.listaDePublicaciones.SelectedItem;
+                MainWindow.SN.Comment(publicacion, content);
 
                 Hide();
                 Interaccion I = new Interaccion();

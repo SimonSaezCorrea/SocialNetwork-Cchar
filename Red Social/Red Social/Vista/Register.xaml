@@ -8,7 +8,7 @@
         Title="TheNewSocial" Height="400" Width="400">
     <Grid>
         <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="100,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" VerticalAlignment="Top" Width="200"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="100,57,0,0" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="100,134,0,0" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS"/>
         <Button x:Name="Aceppt" Content="Aceptar" HorizontalAlignment="Left" Margin="157,216,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Aceppt_Click" FontFamily="Comic Sans MS"/>

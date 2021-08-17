@@ -8,24 +8,24 @@ namespace Red_Social
 {
     public class Socialnetwork : Accionable
     {
-        private string name; // Nombre de la socialnetwork
-        private DateTime date; // Fecha de creacion
-        private List<User> listUser; // Lista de usuarios que contiene la socialnetwork
-        private List<Post> listPost; // Lista de publicaciones que contiene la socialnetwork
-        private List<Comment> listComment; // Lista de comentarios que contiene la socialnetwork
+        public string Name { get; set; } // Nombre de la socialnetwork
+        public DateTime Date { get; set; } // Fecha de creacion
+        public List<User> ListUser { get; set; } // Lista de usuarios que contiene la socialnetwork
+        public List<Post> ListPost { get; set; } // Lista de publicaciones que contiene la socialnetwork
+        public List<Comment> ListComment { get; set; } // Lista de comentarios que contiene la socialnetwork
 
         /**
          * Constructor.
          * @param name Nombre de la socialnetwork.
          * @param date Fecha de creacion de la socialnetwork.
          */
-        public Socialnetwork(string name, DateTime date)
+        public Socialnetwork(string Name, DateTime Date)
         {
-            this.name = name;
-            this.date = date;
-            listUser = new List<User>();
-            listPost = new List<Post>();
-            listComment = new List<Comment>();
+            this.Name = Name;
+            this.Date = Date;
+            ListUser = new List<User>();
+            ListPost = new List<Post>();
+            ListComment = new List<Comment>();
         }
 
         //------------------------------------- ACCIONABLE -------------------------------------------------------
@@ -41,8 +41,8 @@ namespace Red_Social
             if (ExistUser(name, password))
             {
                 User user = SearchUser(name);
-                user.SetActivity(true);
-                Console.WriteLine("El usuario " + user.GetName() + " se conecto a la red social");
+                user.Activity = true;
+                Console.WriteLine("El usuario " + user.Name + " se conecto a la red social");
                 return true;
             }
             Console.WriteLine("El usuario no existe");
@@ -60,9 +60,9 @@ namespace Red_Social
             if (!ExistUser(name, password))
             {
                 User user = new User(CreateIDUser(), name, password, DateTime.Now);
-                user.SetActivity(true);
+                user.Activity = true;
                 AddListUser(user);
-                Console.WriteLine("El usuario " + user.GetName() + " se creo y conecto a la red social");
+                Console.WriteLine("El usuario " + user.Name + " se creo y conecto a la red social");
                 return true;
             }
             Console.WriteLine("El usuario ya existe");
@@ -75,9 +75,9 @@ namespace Red_Social
 
         public void Logout()
         {
-            Console.WriteLine("El usuario " + SearchUserActive().GetName() + " se desconecto de la red social\n\n");
+            Console.WriteLine("El usuario " + SearchUserActive().Name + " se desconecto de la red social\n\n");
 
-            SearchUserActive().SetActivity(false);
+            SearchUserActive().Activity = false;
         }
 
         /**
@@ -117,15 +117,15 @@ namespace Red_Social
                     if (ExistUser(nameUser))
                     {
                         User user = SearchUser(nameUser);
-                        if (user.GetFollowers().ExistFollow(author) && user.GetFollowed().ExistFollow(author))
+                        if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
                         {
                             user.AddListPost(post);
                             seEnvioUno = true;
-                            Console.WriteLine("Publicacion enviada correctamente a " + user.GetName());
+                            Console.WriteLine("Publicacion enviada correctamente a " + user.Name);
                         }
                         else
                         {
-                            Console.WriteLine("No se puede enviar el post a " + user.GetName() + ", no se siguen mutuamente");
+                            Console.WriteLine("No se puede enviar el post a " + user.Name + ", no se siguen mutuamente");
                         }
                     }
                     else
@@ -150,16 +150,16 @@ namespace Red_Social
         {
 
             User userConnect = SearchUserActive();
-            if (!name.Equals(userConnect.GetName()))
+            if (!name.Equals(userConnect.Name))
             {
                 if (ExistUser(name))
                 {
                     User user = SearchUser(name);
 
-                    userConnect.GetFollowed().AddListFollows(user);
-                    user.GetFollowers().AddListFollows(userConnect);
+                    userConnect.Followed.AddListFollows(user);
+                    user.Followers.AddListFollows(userConnect);
 
-                    Console.WriteLine("El usuario " + userConnect.GetName() + " sigue a " + user.GetName());
+                    Console.WriteLine("El usuario " + userConnect.Name + " sigue a " + user.Name);
                 }
                 else
                 {
@@ -190,15 +190,15 @@ namespace Red_Social
                 if (ExistUser(nameUser))
                 {
                     User user = SearchUser(nameUser);
-                    if (user.GetName().Equals(SearchUserActive().GetName()))
+                    if (user.Name.Equals(SearchUserActive().Name))
                     {
                         user.AddListPostShare(post, DateTime.Now);
                         Console.WriteLine("La publicacion se compartio correctamente a su cuenta");
                     }
-                    else if (user.GetFollowers().ExistFollow(SearchUserActive()) && user.GetFollowed().ExistFollow(SearchUserActive()))
+                    else if (user.Followers.ExistFollow(SearchUserActive()) && user.Followed.ExistFollow(SearchUserActive()))
                     {
                         user.AddListPostShare(post, DateTime.Now);
-                        Console.WriteLine("La publicacion se compartio correctamente a la cuenta de " + user.GetName());
+                        Console.WriteLine("La publicacion se compartio correctamente a la cuenta de " + user.Name);
                     }
                     else
                     {
@@ -236,9 +236,9 @@ namespace Red_Social
                 return strings;
             }
 
-            strings += "Nombre: " + GetName() +
+            strings += "Nombre: " + Name +
                     "\nUsuarios inscritos: \n";
-            foreach (User users in listUser)
+            foreach (User users in ListUser)
             {
                 strings += users.ToStrings() +
                         "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n";
@@ -266,16 +266,16 @@ namespace Red_Social
             if (author != null)
             {
                 Comment comment = new Comment(CreateIDComment(), SearchUserActive(), DateTime.Now, text);
-                User user = post.GetAuthor();
-                if ((author.GetFollowers().ExistFollow(user) && author.GetFollowed().ExistFollow(user)) || author.Equals(user))
+                User user = post.Author;
+                if ((author.Followers.ExistFollow(user) && author.Followed.ExistFollow(user)) || author.Equals(user))
                 {
                     AddListComment(comment);
                     post.AddListComment(comment);
-                    Console.WriteLine("Cometario enviado correctamente a la publicacion " + post.GetId());
+                    Console.WriteLine("Cometario enviado correctamente a la publicacion " + post.Id);
                 }
                 else
                 {
-                    Console.WriteLine("No se puede enviar el comentario a la publicacion " + post.GetId() + ", no se siguen mutuamente (el autor con el que envia el comentario)");
+                    Console.WriteLine("No se puede enviar el comentario a la publicacion " + post.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
                 }
             }
         }
@@ -290,16 +290,16 @@ namespace Red_Social
             if (author != null)
             {
                 Comment commentComment = new Comment(CreateIDComment(), SearchUserActive(), DateTime.Now, text);
-                User user = comment.GetAuthor();
-                if ((user.GetFollowers().ExistFollow(author) && user.GetFollowed().ExistFollow(author)) || author.Equals(user))
+                User user = comment.Author;
+                if ((user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author)) || author.Equals(user))
                 {
                     AddListComment(commentComment);
                     comment.AddListComment(commentComment);
-                    Console.WriteLine("Cometario enviado correctamente al comentario " + comment.GetId());
+                    Console.WriteLine("Cometario enviado correctamente al comentario " + comment.Id);
                 }
                 else
                 {
-                    Console.WriteLine("No se puede enviar el comentario al comentario " + comment.GetId() + ", no se siguen mutuamente (el autor con el que envia el comentario)");
+                    Console.WriteLine("No se puede enviar el comentario al comentario " + comment.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
                 }
             }
             else
@@ -318,15 +318,15 @@ namespace Red_Social
             if (author != null)
             {
                 Like like = new Like(comment.CreatIdLike(), DateTime.Now, SearchUserActive());
-                User user = comment.GetAuthor();
-                if (user.GetFollowers().ExistFollow(author) && user.GetFollowed().ExistFollow(author))
+                User user = comment.Author;
+                if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
                 {
                     comment.AddListLike(like);
-                    Console.WriteLine("Like enviado correctamente al comentario " + comment.GetId());
+                    Console.WriteLine("Like enviado correctamente al comentario " + comment.Id);
                 }
                 else
                 {
-                    Console.WriteLine("No se puede enviar el Like al comentario " + comment.GetId() + ", no se siguen mutuamente (el autor con el que envia el comentario)");
+                    Console.WriteLine("No se puede enviar el Like al comentario " + comment.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
                 }
             }
             else
@@ -346,15 +346,15 @@ namespace Red_Social
             if (author != null)
             {
                 Like like = new Like(post.CreatIdLike(), DateTime.Now, SearchUserActive());
-                User user = post.GetAuthor();
-                if (user.GetFollowers().ExistFollow(author) && user.GetFollowed().ExistFollow(author))
+                User user = post.Author;
+                if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
                 {
                     post.AddListLike(like);
-                    Console.WriteLine("Like enviado correctamente a la publicacion " + post.GetId());
+                    Console.WriteLine("Like enviado correctamente a la publicacion " + post.Id);
                 }
                 else
                 {
-                    Console.WriteLine("No se puede enviar el Like a la publicacion " + post.GetId() + ", no se siguen mutuamente (el autor con el que envia el comentario)");
+                    Console.WriteLine("No se puede enviar el Like a la publicacion " + post.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
                 }
             }
             else
@@ -372,27 +372,27 @@ namespace Red_Social
          * Metodo que permite crear el siguiente id del arreglo de usuarios.
          * @return el id siguiente que corresponde.
          */
-        private int CreateIDUser()
+        private string CreateIDUser()
         {
-            return 1 + listUser.Count;
+            return Convert.ToString(1 + ListUser.Count);
         }
 
         /**
          * Metodo que permite crear el siguiente id del arreglo de publicaciones.
          * @return el id siguiente que corresponde.
          */
-        private int CreateIDPost()
+        private string CreateIDPost()
         {
-            return 1 + listPost.Count;
+            return Convert.ToString(1 + ListPost.Count);
         }
 
         /**
          * Metodo que permite crear el siguiente id del arreglo de comentarios.
          * @return el id siguiente que corresponde.
          */
-        private int CreateIDComment()
+        private string CreateIDComment()
         {
-            return 1 + listComment.Count;
+            return Convert.ToString(1 + ListComment.Count);
         }
 
         //------------------------------------------------- EXISTENCIA --------------------------------------------------------
@@ -404,9 +404,9 @@ namespace Red_Social
          */
         public bool ExistUser(string name)
         {
-            foreach (User user in listUser)
+            foreach (User user in ListUser)
             {
-                if (name.Equals(user.GetName()))
+                if (name.Equals(user.Name))
                 {
                     return true;
                 }
@@ -422,9 +422,9 @@ namespace Red_Social
          */
         public bool ExistUser(string name, string password)
         {
-            foreach (User user in listUser)
+            foreach (User user in ListUser)
             {
-                if (name.Equals(user.GetName()) && password.Equals(user.GetPassword()))
+                if (name.Equals(user.Name) && password.Equals(user.Password))
                 {
                     return true;
                 }
@@ -439,9 +439,9 @@ namespace Red_Social
          */
         public bool ExistUser(int id)
         {
-            foreach (User user in listUser)
+            foreach (User user in ListUser)
             {
-                if (id == user.GetId())
+                if (Convert.ToString(id).Equals(user.Id))
                 {
                     return true;
                 }
@@ -459,9 +459,9 @@ namespace Red_Social
         public User SearchUserActive()
         {
 
-            foreach (User user in listUser)
+            foreach (User user in ListUser)
             {
-                if (user.GetActivity())
+                if (user.Activity)
                 {
                     return user;
                 }
@@ -476,9 +476,9 @@ namespace Red_Social
          */
         public User SearchUser(string name)
         {
-            foreach (User user in listUser)
+            foreach (User user in ListUser)
             {
-                if (name.Equals(user.GetName()))
+                if (name.Equals(user.Name))
                 {
                     return user;
                 }
@@ -493,9 +493,9 @@ namespace Red_Social
          */
         public User SearchUser(int id)
         {
-            foreach (User user in listUser)
+            foreach (User user in ListUser)
             {
-                if (id == user.GetId())
+                if (Convert.ToString(id).Equals(user.Id))
                 {
                     return user;
                 }
@@ -510,9 +510,9 @@ namespace Red_Social
          */
         public Post SearchPost(int id)
         {
-            foreach (Post post in listPost)
+            foreach (Post post in ListPost)
             {
-                if (id == post.GetId())
+                if (Convert.ToString(id).Equals(post.Id))
                 {
                     return post;
                 }
@@ -527,9 +527,9 @@ namespace Red_Social
          */
         public Comment SearchComment(int id)
         {
-            foreach (Comment comment in listComment)
+            foreach (Comment comment in ListComment)
             {
-                if (id == comment.GetId())
+                if (Convert.ToString(id).Equals(comment.Id))
                 {
                     return comment;
                 }
@@ -541,112 +541,30 @@ namespace Red_Social
         //--------------------------------------------- GET and SET --------------------------------------------------
 
         /**
-         * Metodo que recoge el nombre de la socialnetwork.
-         * @return El nombre de la socialnetwork.
-         */
-        public string GetName()
-        {
-            return name;
-        }
-        /**
-         * Metodo que cambia el nombre de la socialnetwork.
-         * @param name El nombre por el que se desea cambiar.
-         */
-        public void SetName(string name)
-        {
-            this.name = name;
-        }
-
-        /**
-         * Metodo que recoge la fecha de creacion de la socialnetwork.
-         * @return La fecha de creacion.
-         */
-        public DateTime GetDate()
-        {
-            return date;
-        }
-        /**
-         * Metodo que cambia la fecha de creacion de la socialnetwork.
-         * @param date La fecha de creacion por la que se desea cambiar.
-         */
-        public void SetDate(DateTime date)
-        {
-            this.date = date;
-        }
-
-        /**
-         * Metodo que recoge el arreglo de usuario de la socialnetwork.
-         * @return El arreglo de usuarios.
-         */
-        public List<User> GetListUser()
-        {
-            return listUser;
-        }
-        /**
-         * Metodo que cambia el arreglo de usuarios de la socialnetwork.
-         * @param listUser Es el arreglo de usuarios por el que se desea cambiar.
-         */
-        public void SetListUser(List<User> listUser)
-        {
-            this.listUser = listUser;
-        }
-        /**
          * Metodo que permite añadir un elemento al arreglo de usuarios.
          * @param user Es el usuario que se desea agregar.
          */
         public void AddListUser(User user)
         {
-            listUser.Add(user);
+           ListUser.Add(user);
         }
 
-        /**
-         * Metodo que recoge el arreglo de publicaciones de la socialnetwork.
-         * @return El arreglo de publicaciones.
-         */
-        public List<Post> GetListPost()
-        {
-            return listPost;
-        }
-        /**
-         * Metodo que cambia el arreglo de publicaciones de la socialnetwork.
-         * @param listPost Es el arreglo de publicacion que se desea cambiar.
-         */
-        public void SetListPost(List<Post> listPost)
-        {
-            this.listPost = listPost;
-        }
         /**
          * Metodo que permite añadir un elemento al arreglo de publicaciones.
          * @param post Es la publicacion que se desea agregar.
          */
         public void AddListPost(Post post)
         {
-            listPost.Add(post);
+            ListPost.Add(post);
         }
 
-        /**
-         * Metodo que recoge el arreglo de comentarios de la socialnetwork.
-         * @return El arreglo de comentarios.
-         */
-        public List<Comment> GetListComment()
-        {
-            return listComment;
-        }
-        /**
-         * Metodo que cambia el arreglo de comentarios de la socialnetwork.
-         * @param listComment Es el arreglo de comentarios que se desea cambiar.
-         */
-        public void SetListComment(List<Comment> listComment)
-        {
-            this.listComment = listComment;
-        }
         /**
          * Metodo que permite añadir un elemento al arreglo de comentarios.
          * @param comment Es el comentario que se desea agregar.
          */
         public void AddListComment(Comment comment)
         {
-            listComment.Add(comment);
+            ListComment.Add(comment);
         }
     }
 }

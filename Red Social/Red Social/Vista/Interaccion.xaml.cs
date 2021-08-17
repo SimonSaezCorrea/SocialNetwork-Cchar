@@ -23,17 +23,16 @@ namespace Red_Social
         public Interaccion()
         {
             InitializeComponent();
-            List<Publicaciones> listPublicaciones = new List<Publicaciones>();
+            List<Post> listPublicaciones = new List<Post>();
 
-            listPublicaciones.Add(new Publicaciones() { Id = "ID", Content = "Contenido", Autor = "Autor" });
+            listPublicaciones.Add(new Post() { Id = "ID", Content = "Contenido", Author = new User() { Name = "Autor"} });
 
-            foreach (Post post in MainWindow.SN.GetListPost())
+            foreach (Post post in MainWindow.SN.ListPost)
             {
-                listPublicaciones.Add(new Publicaciones() { Id = Convert.ToString(post.GetId()), Content = post.GetContent(), Autor = post.GetAuthor().GetName() });
+                listPublicaciones.Add(post);
             }
             ListPost.ItemsSource = listPublicaciones;
             listaDePublicaciones = ListPost;
-            //listaDePublicaciones.Visibility = Visibility.Hidden;
         }
 
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -68,12 +67,13 @@ namespace Red_Social
                 _ = MessageBox.Show("Debe elegir una publicacion","Error");
             }  
         }
-    }
 
-    public class Publicaciones
-    {
-        public string Id { get; set; }
-        public string Content { get; set; }
-        public string Autor { get; set; }
+        private void Follow_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            Seguir S = new Seguir();
+            S.Show();
+
+        }
     }
 }

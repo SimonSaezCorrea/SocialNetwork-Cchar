@@ -15,8 +15,12 @@ namespace Red_Social
          * @param date La fecha de creacion del comentario
          * @param content El contenido del comentario
          */
-        public Comment(int id, User author, DateTime date, string content) : base(id, author, date, content)
+        public Comment(string Id, User Author, DateTime Date, string Content) : base(Id, Author, Date, Content)
         {
+        }
+        public Comment()
+        {
+
         }
 
         /**
@@ -28,18 +32,18 @@ namespace Red_Social
         {
             string strings = "";
 
-            strings += bloques + "Autor: " + GetAuthor().GetName() +
-                    "\n" + bloques + "Contenido: " + GetContent() +
-                    "\n" + bloques + "Like: " + Convert.ToString(GetLike()) +
+            strings += bloques + "Autor: " + Author.Name +
+                    "\n" + bloques + "Contenido: " + Content +
+                    "\n" + bloques + "Like: " + Convert.ToString(Like) +
                     "\n" + bloques + "Comentarios: \n";
 
-            if (GetListComment() == null)
+            if (ListComment == null)
             {
                 strings += bloques + "     <No hay comentarios>\n";
             }
             else
             {
-                foreach (Comment comment in GetListComment())
+                foreach (Comment comment in ListComment)
                 {
                     strings += "..................................................\n" +
                             comment.ToStrings(bloques + "     ") +
@@ -52,11 +56,11 @@ namespace Red_Social
 
         public void MostrarComentarios()
         {
-            if (GetListComment() != null)
+            if (ListComment != null)
             {
-                foreach (Comment mostrarComment in GetListComment())
+                foreach (Comment mostrarComment in ListComment)
                 {
-                    Console.WriteLine(Convert.ToString(mostrarComment.GetId()) + ") Contenido: " + mostrarComment.GetContent() + "\n----------------------------------\n");
+                    Console.WriteLine(mostrarComment.Id + ") Contenido: " + mostrarComment.Content + "\n----------------------------------\n");
                     mostrarComment.MostrarComentarios();
                 }
             }

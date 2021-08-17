@@ -24,19 +24,18 @@ namespace Red_Social
         {
             InitializeComponent();
 
-            Comentarios comentarios = (Comentarios)AbrirPost.ListaDeComentarios.SelectedItem;
-            Comment comment = MainWindow.SN.SearchComment(Convert.ToInt32(comentarios.Id));
+            Comment comentarios = (Comment)AbrirPost.ListaDeComentarios.SelectedItem;
 
-            Contenido.Text = comment.GetContent();
-            Likes.Text = Convert.ToString(comment.GetLike());
-            Autor.Text = comment.GetAuthor().GetName();
-            FechaPublicacion.Text = comment.GetDate().ToString();
+            Contenido.Text = comentarios.Content;
+            Likes.Text = Convert.ToString(comentarios.Like);
+            Autor.Text = comentarios.Author.Name;
+            FechaPublicacion.Text = comentarios.Date.ToString();
 
-            List<Comentarios> listComentarios = new List<Comentarios>();
-            listComentarios.Add(new Comentarios() { Id = "ID", Content = "Comentarios" });
-            foreach (Comment com in comment.GetListComment())
+            List<Comment> listComentarios = new List<Comment>();
+            listComentarios.Add(new Comment() { Id = "ID", Content = "Comentarios" });
+            foreach (Comment comment in comentarios.ListComment)
             {
-                listComentarios.Add(new Comentarios() { Id = Convert.ToString(com.GetId()), Content = com.GetContent() });
+                listComentarios.Add(comment);
             }
             ListComentarios.ItemsSource = listComentarios;
         }

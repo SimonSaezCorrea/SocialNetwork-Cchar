@@ -29,9 +29,9 @@ namespace Red_Social
         {
             if (!Name.Text.Equals(""))
             {
-                if (!Password.Text.Equals(""))
+                if (!Password.Password.Equals(""))
                 {
-                    if (MainWindow.SN.Register(Name.Text, Password.Text))
+                    if (MainWindow.SN.Register(Name.Text, Password.Password))
                     {
                         Hide();
 

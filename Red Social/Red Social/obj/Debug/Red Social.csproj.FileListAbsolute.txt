@@ -27,3 +27,5 @@ D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\AbrirComenta
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Comentar.baml
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\ComentarComentario.g.cs
 D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\ComentarComentario.baml
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Seguir.g.cs
+D:\Git Hub\lab4_20640480_Saez\Red Social\Red Social\obj\Debug\Vista\Seguir.baml

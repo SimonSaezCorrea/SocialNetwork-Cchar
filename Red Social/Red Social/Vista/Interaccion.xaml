@@ -22,7 +22,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Id}"></TextBlock>
                         <TextBlock Grid.Column="1" Text="{Binding Content}"></TextBlock>
-                        <TextBlock Grid.Column="2" Text="{Binding Autor}"></TextBlock>
+                        <TextBlock Grid.Column="2" Text="{Binding Author.Name}"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -31,5 +31,6 @@
         <Button Name="Post" Content="Post" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Post_Click" FontFamily="Comic Sans MS"/>
         <Button Name="Abrir" Content="Abrir Post" HorizontalAlignment="Left" Margin="115,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="21" FontFamily="Comic Sans MS" Click="Abrir_Click"/>
         <Label Content="Publicaciones" HorizontalAlignment="Left" Margin="361,0,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
+        <Button Name="Follow" Content="Follow" HorizontalAlignment="Left" Margin="712,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Follow_Click"/>
     </Grid>
 </Window>
