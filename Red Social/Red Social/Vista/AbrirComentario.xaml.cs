@@ -24,6 +24,9 @@ namespace Red_Social
         {
             InitializeComponent();
 
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             Comment comentarios = (Comment)AbrirPost.ListaDeComentarios.SelectedItem;
 
             Contenido.Text = comentarios.Content;

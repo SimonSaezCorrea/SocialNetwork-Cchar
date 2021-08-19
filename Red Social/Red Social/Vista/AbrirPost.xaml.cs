@@ -23,6 +23,10 @@ namespace Red_Social
         public AbrirPost()
         {
             InitializeComponent();
+
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             Post publicacion = (Post)Interaccion.listaDePublicaciones.SelectedItem;
 
             Contenido.Text = publicacion.Content;

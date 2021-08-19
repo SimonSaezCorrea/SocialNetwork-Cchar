@@ -23,6 +23,9 @@ namespace Red_Social
         {
             InitializeComponent();
 
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             List<User> listPublicaciones = new List<User>();
 
             listPublicaciones.Add(new User() { Name = "Nombre" });

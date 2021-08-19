@@ -23,15 +23,18 @@ namespace Red_Social
         public Register()
         {
             InitializeComponent();
+
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Aceppt_Click(object sender, RoutedEventArgs e)
         {
-            if (!Name.Text.Equals(""))
+            if (!name.Text.Equals(""))
             {
                 if (!Password.Password.Equals(""))
                 {
-                    if (MainWindow.SN.Register(Name.Text, Password.Password))
+                    if (MainWindow.SN.Register(name.Text, Password.Password))
                     {
                         Hide();
 

@@ -23,13 +23,20 @@ namespace Red_Social
         public Interaccion()
         {
             InitializeComponent();
+
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             List<Post> listPublicaciones = new List<Post>();
 
             listPublicaciones.Add(new Post() { Id = "ID", Content = "Contenido", Author = new User() { Name = "Autor"} });
 
             foreach (Post post in MainWindow.SN.ListPost)
             {
-                listPublicaciones.Add(post);
+                if ((MainWindow.SN.SearchUserActive().Followed.ExistFollow(post.Author) && MainWindow.SN.SearchUserActive().Followers.ExistFollow(post.Author)) || MainWindow.SN.SearchUserActive().Equals(post.Author))
+                {
+                    listPublicaciones.Add(post);
+                }
             }
             ListPost.ItemsSource = listPublicaciones;
             listaDePublicaciones = ListPost;

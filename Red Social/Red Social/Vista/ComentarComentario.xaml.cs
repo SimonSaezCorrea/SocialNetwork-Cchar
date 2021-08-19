@@ -22,6 +22,9 @@ namespace Red_Social
         public ComentarComentario()
         {
             InitializeComponent();
+
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Aceptar_Click(object sender, RoutedEventArgs e)

@@ -23,6 +23,9 @@ namespace Red_Social
         {
             InitializeComponent();
 
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             List<User> listUser = new List<User>();
             List<User> listUser_Elegidos = new List<User>();
 
@@ -32,7 +35,7 @@ namespace Red_Social
 
             foreach (User user in MainWindow.SN.ListUser)
             {
-                if (!user.Equals(MainWindow.SN.SearchUserActive()))
+                if (!user.Equals(MainWindow.SN.SearchUserActive()) && MainWindow.SN.SearchUserActive().Followers.ExistFollow(user) && MainWindow.SN.SearchUserActive().Followed.ExistFollow(user))
                 {
                     listUser.Add(user);
                 }

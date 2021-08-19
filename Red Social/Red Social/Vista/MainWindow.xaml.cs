@@ -189,17 +189,20 @@ namespace Red_Social
             }
 
             InitializeComponent();
+
+            ResizeMode = ResizeMode.NoResize;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Aceppt_Click(object sender, RoutedEventArgs e)
         {
-            string name = Name.Text;
+            string names = name.Text;
             string pass = Password.Password;
-            if (!name.Equals(""))
+            if (!names.Equals(""))
             {
                 if (!pass.Equals(""))
                 {
-                    if (SN.Login(name, pass))
+                    if (SN.Login(names, pass))
                     {
                         Hide();
 

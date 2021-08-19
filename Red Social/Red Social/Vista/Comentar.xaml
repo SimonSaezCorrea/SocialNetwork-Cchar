@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Red_Social"
         mc:Ignorable="d"
-        Title="Comentar" Height="450" Width="529.75">
+        Title="TheNewSocial" Height="450" Width="529.75">
     <Grid>
         <Label Content="Crear Comentario" HorizontalAlignment="Left" Margin="200,18,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
         <Label Content="Contenido" HorizontalAlignment="Left" Margin="11,66,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
