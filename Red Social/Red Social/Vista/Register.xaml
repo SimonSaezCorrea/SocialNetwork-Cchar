@@ -8,13 +8,21 @@
         Title="TheNewSocial" Height="400" Width="400">
     <Grid>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="100,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" VerticalAlignment="Top" Width="200"/>
+        <PasswordBox x:Name="Password_Ocultar" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" VerticalAlignment="Top" Width="200" Visibility="Visible"/>
+        <TextBox x:Name="Password_Mostrar" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" VerticalAlignment="Top" Width="200" Visibility="Hidden"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="100,57,0,0" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="100,134,0,0" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS"/>
         <Button x:Name="Aceppt" Content="Aceptar" HorizontalAlignment="Left" Margin="157,216,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Aceppt_Click" FontFamily="Comic Sans MS"/>
         <Button x:Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="157,251,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="Cancelar_Click" FontFamily="Comic Sans MS"/>
         <Button x:Name="Salir" Content="Salir" HorizontalAlignment="Left" Margin="332,329,0,0" VerticalAlignment="Top" Width="50" Height="30" FontFamily="Comic Sans MS" Click="Salir_Click"/>
         <Label Content="Registro" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="79" FontFamily="Comic Sans MS"/>
+
+        <Button Name="Es_Mo_Pass" HorizontalAlignment="Left" Margin="307,165,0,0" VerticalAlignment="Top" Width="30" Height="23" Click="Es_Mo_Pass_Click">
+            <Grid>
+                <Image Name ="Esconder" Source="../Images/Ojo_Escondido.jpg" Width="24" Stretch="Fill" Visibility="Visible"/>
+                <Image Name ="Mostrar" Source="../Images/Ojo_Descubierto.jpg" Width="24" Stretch="Fill" Visibility="Hidden"/>
+            </Grid>
+        </Button>
 
     </Grid>
 </Window>

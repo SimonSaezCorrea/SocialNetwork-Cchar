@@ -75,5 +75,14 @@ namespace Red_Social
                 _ = MessageBox.Show("Debe elegir un comentario", "Error");
             }
         }
+        private void Like_Click(object sender, RoutedEventArgs e)
+        {
+            int likes = Convert.ToInt32(Likes.Text);
+            if (MainWindow.SN.Like((Comment)AbrirPost.ListaDeComentarios.SelectedItem))
+            {
+                likes += 1;
+                Likes.Text = Convert.ToString(likes);
+            }
+        }
     }
 }

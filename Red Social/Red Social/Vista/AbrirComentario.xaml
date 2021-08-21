@@ -16,8 +16,13 @@
         <TextBox x:Name="FechaPublicacion" HorizontalAlignment="Left" Height="26" Margin="331,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" RenderTransformOrigin="0.679,0.538" IsEnabled="False"/>
         <Label Content="Fecha Publicacion" HorizontalAlignment="Left" Margin="222,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>
 
-        <TextBox x:Name="Likes" HorizontalAlignment="Left" Height="26" Margin="587,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.679,0.538" IsEnabled="False"/>
-        <Label Content="Likes" HorizontalAlignment="Left" Margin="544,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>
+        <TextBox Name="Likes" HorizontalAlignment="Left" Height="26" Margin="555,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.679,0.538" IsEnabled="False"/>
+        <Label Content="Likes" HorizontalAlignment="Left" Margin="511,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>
+        <Button Name="Like" HorizontalAlignment="Left" Margin="588,175,0,0" VerticalAlignment="Top" Width="27" Height="26" RenderTransformOrigin="1.634,0.583" Click="Like_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../Images/Like.png" Width="24" Stretch="Fill"/>
+            </StackPanel>
+        </Button>
 
         <ListBox x:Name="ListComentarios" HorizontalAlignment="Left" Height="130" Margin="30,216,0,0" VerticalAlignment="Top" Width="730">
             <ListBox.ItemTemplate>
@@ -34,6 +39,5 @@
         <Button x:Name="Comentar" Content="Comentar" HorizontalAlignment="Left" Margin="30,351,0,0" VerticalAlignment="Top" Width="100" FontFamily="Comic Sans MS" Click="Comentar_Click"/>
         <Button x:Name="VerComentario" Content="Ver comentario" HorizontalAlignment="Left" Margin="135,351,0,0" VerticalAlignment="Top" Width="100" FontFamily="Comic Sans MS" Click="VerComentario_Click"/>
         <Button x:Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="707,389,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS" Click="Cancelar_Click"/>
-
     </Grid>
 </Window>

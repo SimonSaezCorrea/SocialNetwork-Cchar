@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    public class Socialnetwork : Accionable
+    public class Socialnetwork : IAccionable
     {
         public string Name { get; set; } // Nombre de la socialnetwork
         public DateTime Date { get; set; } // Fecha de creacion
@@ -42,10 +42,8 @@ namespace Red_Social
             {
                 User user = SearchUser(name);
                 user.Activity = true;
-                Console.WriteLine("El usuario " + user.Name + " se conecto a la red social");
                 return true;
             }
-            Console.WriteLine("El usuario no existe");
             return false;
         }
         /**
@@ -62,10 +60,8 @@ namespace Red_Social
                 User user = new User(CreateIDUser(), name, password, DateTime.Now);
                 user.Activity = true;
                 AddListUser(user);
-                Console.WriteLine("El usuario " + user.Name + " se creo y conecto a la red social");
                 return true;
             }
-            Console.WriteLine("El usuario ya existe");
             return false;
         }
 
@@ -75,8 +71,6 @@ namespace Red_Social
 
         public void Logout()
         {
-            Console.WriteLine("El usuario " + SearchUserActive().Name + " se desconecto de la red social\n\n");
-
             SearchUserActive().Activity = false;
         }
 
@@ -94,7 +88,6 @@ namespace Red_Social
                 Post post = new Post(CreateIDPost(), author, DateTime.Now, content, typePost);
                 AddListPost(post);
                 author.AddListPost(post);
-                Console.WriteLine("Publicaciones creada correctamente");
             }
         }
         /**
@@ -121,22 +114,12 @@ namespace Red_Social
                         {
                             user.AddListPost(post);
                             seEnvioUno = true;
-                            Console.WriteLine("Publicacion enviada correctamente a " + user.Name);
                         }
-                        else
-                        {
-                            Console.WriteLine("No se puede enviar el post a " + user.Name + ", no se siguen mutuamente");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No existe el Usuario" + nameUser + "para enviarle el post");
                     }
                 }
                 if (seEnvioUno)
                 {
                     AddListPost(post);
-                    Console.WriteLine("Publicaciones enviadas correctamente");
                 }
             }
         }
@@ -148,7 +131,6 @@ namespace Red_Social
          */
         public void Follow(string name)
         {
-
             User userConnect = SearchUserActive();
             if (!name.Equals(userConnect.Name))
             {
@@ -158,17 +140,7 @@ namespace Red_Social
 
                     userConnect.Followed.AddListFollows(user);
                     user.Followers.AddListFollows(userConnect);
-
-                    Console.WriteLine("El usuario " + userConnect.Name + " sigue a " + user.Name);
                 }
-                else
-                {
-                    Console.WriteLine("El usuario no existe");
-                }
-            }
-            else
-            {
-                Console.WriteLine("No puedes seguir a ti mismo");
             }
 
         }
@@ -193,21 +165,11 @@ namespace Red_Social
                     if (user.Name.Equals(SearchUserActive().Name))
                     {
                         user.AddListPostShare(post, DateTime.Now);
-                        Console.WriteLine("La publicacion se compartio correctamente a su cuenta");
                     }
                     else if (user.Followers.ExistFollow(SearchUserActive()) && user.Followed.ExistFollow(SearchUserActive()))
                     {
                         user.AddListPostShare(post, DateTime.Now);
-                        Console.WriteLine("La publicacion se compartio correctamente a la cuenta de " + user.Name);
                     }
-                    else
-                    {
-                        Console.WriteLine("No se puede compartir, no se siguen mutuamente");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("No existe el usuario " + nameUser + "\n");
                 }
 
             }
@@ -271,11 +233,6 @@ namespace Red_Social
                 {
                     AddListComment(comment);
                     post.AddListComment(comment);
-                    Console.WriteLine("Cometario enviado correctamente a la publicacion " + post.Id);
-                }
-                else
-                {
-                    Console.WriteLine("No se puede enviar el comentario a la publicacion " + post.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
                 }
             }
         }
@@ -295,16 +252,7 @@ namespace Red_Social
                 {
                     AddListComment(commentComment);
                     comment.AddListComment(commentComment);
-                    Console.WriteLine("Cometario enviado correctamente al comentario " + comment.Id);
                 }
-                else
-                {
-                    Console.WriteLine("No se puede enviar el comentario al comentario " + comment.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
-                }
-            }
-            else
-            {
-                Console.WriteLine("No hay un usuario conectado");
             }
         }
 
@@ -312,27 +260,24 @@ namespace Red_Social
          * Metodo que permite dar like a un comentario
          * @param comment El comentario a dar like
          */
-        public void Like(Comment comment)
+        public bool Like(Comment comment)
         {
             User author = SearchUserActive();
             if (author != null)
             {
                 Like like = new Like(comment.CreatIdLike(), DateTime.Now, SearchUserActive());
                 User user = comment.Author;
-                if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
+                if ((user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author)) || user.Equals(author))
                 {
-                    comment.AddListLike(like);
-                    Console.WriteLine("Like enviado correctamente al comentario " + comment.Id);
-                }
-                else
-                {
-                    Console.WriteLine("No se puede enviar el Like al comentario " + comment.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
+                    if (!comment.ExistUserLike(user))
+                    {
+                        comment.AddListLike(like);
+                        return true;
+                    }
                 }
             }
-            else
-            {
-                Console.WriteLine("No hay un usuario conectado");
-            }
+
+            return false;
 
 
         }
@@ -340,29 +285,24 @@ namespace Red_Social
          * Metodo que permite dar like a una publicacion
          * @param post La publicacion a dar like
          */
-        public void Like(Post post)
+        public bool Like(Post post)
         {
             User author = SearchUserActive();
             if (author != null)
             {
                 Like like = new Like(post.CreatIdLike(), DateTime.Now, SearchUserActive());
                 User user = post.Author;
-                if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
+                if ((user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author)) || user.Equals(author))
                 {
-                    post.AddListLike(like);
-                    Console.WriteLine("Like enviado correctamente a la publicacion " + post.Id);
-                }
-                else
-                {
-                    Console.WriteLine("No se puede enviar el Like a la publicacion " + post.Id + ", no se siguen mutuamente (el autor con el que envia el comentario)");
+                    if (!post.ExistUserLike(user))
+                    {
+                        post.AddListLike(like);
+                        return true;
+                    }
                 }
             }
-            else
-            {
-                Console.WriteLine("No hay un usuario conectado");
-            }
 
-
+            return false;
 
         }
 

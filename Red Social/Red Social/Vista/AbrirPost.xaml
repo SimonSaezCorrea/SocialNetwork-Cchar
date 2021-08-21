@@ -16,8 +16,13 @@
         <TextBox Name="FechaPublicacion" HorizontalAlignment="Left" Height="26" Margin="331,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133" RenderTransformOrigin="0.679,0.538" IsEnabled="False"/>
         <Label Content="Fecha Publicacion" HorizontalAlignment="Left" Margin="222,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>
 
-        <TextBox Name="Likes" HorizontalAlignment="Left" Height="26" Margin="587,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.679,0.538" IsEnabled="False"/>
-        <Label Content="Likes" HorizontalAlignment="Left" Margin="544,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>
+        <TextBox Name="Likes" HorizontalAlignment="Left" Height="26" Margin="555,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.679,0.538" IsEnabled="False"/>
+        <Label Content="Likes" HorizontalAlignment="Left" Margin="511,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>
+        <Button Name="Like" HorizontalAlignment="Left" Margin="588,175,0,0" VerticalAlignment="Top" Width="27" Height="26" RenderTransformOrigin="1.634,0.583" Click="Like_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../Images/Like.png" Width="24" Stretch="Fill"/>
+            </StackPanel>
+        </Button>
 
         <TextBox Name="CantShares" HorizontalAlignment="Left" Height="26" Margin="732,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.679,0.538" IsEnabled="False"/>
         <Label Content="Compartido&#xD;&#xA;" HorizontalAlignment="Left" Margin="654,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>

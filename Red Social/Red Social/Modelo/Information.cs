@@ -62,5 +62,17 @@ namespace Red_Social
         {
             return Convert.ToString(ListLike.Count + 1);
         }
+
+        public bool ExistUserLike(User user)
+        {
+            foreach(Like like in ListLike)
+            {
+                if (like.Author.Equals(user))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

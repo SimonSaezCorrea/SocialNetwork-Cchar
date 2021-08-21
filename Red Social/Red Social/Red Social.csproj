@@ -159,6 +159,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ojo_Descubierto.jpg" />
+    <Resource Include="Images\Ojo_Escondido.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

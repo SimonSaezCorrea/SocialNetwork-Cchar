@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Red_Social
 {
-    public interface Accionable
+    public interface IAccionable
     {
         bool Login(string name, string password);
 
@@ -28,8 +28,8 @@ namespace Red_Social
 
         void Comment(Comment comment, string text);
 
-        void Like(Comment comment);
+        bool Like(Comment comment);
 
-        void Like(Post post);
+        bool Like(Post post);
     }
 }

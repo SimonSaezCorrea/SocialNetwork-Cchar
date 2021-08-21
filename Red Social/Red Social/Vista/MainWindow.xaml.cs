@@ -197,7 +197,8 @@ namespace Red_Social
         private void Aceppt_Click(object sender, RoutedEventArgs e)
         {
             string names = name.Text;
-            string pass = Password.Password;
+            string pass = Password_Ocultar.Visibility.Equals(Visibility.Visible) ? Password_Ocultar.Password : Password_Mostrar.Text;
+
             if (!names.Equals(""))
             {
                 if (!pass.Equals(""))
@@ -237,6 +238,27 @@ namespace Red_Social
         private void Salir_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Es_Mo_Pass_Click(object sender, RoutedEventArgs e)
+        {
+            if (Esconder.Visibility.Equals(Visibility.Visible))
+            {
+                Password_Mostrar.Text = Password_Ocultar.Password;
+                Password_Mostrar.Visibility = Visibility.Visible;
+                Password_Ocultar.Visibility = Visibility.Hidden;
+                Esconder.Visibility = Visibility.Hidden;
+                Mostrar.Visibility = Visibility.Visible;
+            }
+            else if (Mostrar.Visibility.Equals(Visibility.Visible))
+            {
+                Password_Ocultar.Password = Password_Mostrar.Text;
+                Password_Mostrar.Visibility = Visibility.Hidden;
+                Password_Ocultar.Visibility = Visibility.Visible;
+                Esconder.Visibility = Visibility.Visible;
+                Mostrar.Visibility = Visibility.Hidden;
+            }
+
         }
     }
 }
