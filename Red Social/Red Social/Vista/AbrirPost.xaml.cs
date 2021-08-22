@@ -86,5 +86,13 @@ namespace Red_Social
                 Likes.Text = Convert.ToString(likes);
             }
         }
+
+        private void Compartir_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            CantShares.Text = Convert.ToString(Convert.ToInt32(CantShares.Text) + 1);
+            Compartir C = new Compartir();
+            C.Show();
+        }
     }
 }

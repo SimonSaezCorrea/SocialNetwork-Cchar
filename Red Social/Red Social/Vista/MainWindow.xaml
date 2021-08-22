@@ -18,8 +18,8 @@
         <Label Content="Iniciar Sesion" HorizontalAlignment="Left" Margin="153,14,0,0" VerticalAlignment="Top" Width="91" FontFamily="Comic Sans MS"/>
         <Button Name="Es_Mo_Pass" HorizontalAlignment="Left" Margin="307,165,0,0" VerticalAlignment="Top" Width="30" Height="23" Click="Es_Mo_Pass_Click">
             <Grid>
-                <Image Name ="Esconder" Source="../Images/Ojo_Escondido.jpg" Width="24" Stretch="Fill" Visibility="Visible"/>
-                <Image Name ="Mostrar" Source="../Images/Ojo_Descubierto.jpg" Width="24" Stretch="Fill" Visibility="Hidden"/>
+                <Image Name ="Esconder" Source="../Images/Ojo_Escondido.jpg" Stretch="Fill" Visibility="Visible" Margin="-2"/>
+                <Image Name ="Mostrar" Source="../Images/Ojo_Descubierto.jpg" Stretch="Fill" Visibility="Hidden" Margin="-2"/>
             </Grid>
         </Button>
 

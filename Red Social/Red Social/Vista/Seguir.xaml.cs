@@ -55,7 +55,7 @@ namespace Red_Social
                 if (index != 0)
                 {
                     User user = (User)ListUser.SelectedItem;
-                    MainWindow.SN.Follow(user.Name);
+                    MainWindow.SN.Follow(user);
                     Hide();
                     Interaccion I = new Interaccion();
                     I.Show();

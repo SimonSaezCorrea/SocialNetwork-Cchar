@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/ojo_descubierto.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/ojo_escondido.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("compartir.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("like.jpg")]
 
 

@@ -20,7 +20,7 @@
         <Label Content="Likes" HorizontalAlignment="Left" Margin="511,175,0,0" VerticalAlignment="Top" Height="26" FontFamily="Comic Sans MS"/>
         <Button Name="Like" HorizontalAlignment="Left" Margin="588,175,0,0" VerticalAlignment="Top" Width="27" Height="26" RenderTransformOrigin="1.634,0.583" Click="Like_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="../Images/Like.png" Width="24" Stretch="Fill"/>
+                <Image Source="../Images/Like.jpg" Stretch="Fill" Margin="-3,-3,-3,-2"/>
             </StackPanel>
         </Button>
 

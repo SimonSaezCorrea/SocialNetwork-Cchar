@@ -43,39 +43,47 @@ namespace Red_Social
                 _ = SN.Register("Anonimo", "****");
                 SN.Logout();
 
+                User user1 = SN.SearchUser(1);
+                User user2 = SN.SearchUser(2);
+                User user3 = SN.SearchUser(3);
+                User user4 = SN.SearchUser(4);
+                User user5 = SN.SearchUser(5);
+
+
+
                 _ = SN.Login("Simon", "123");
-                SN.Follow("Maria");
-                SN.Follow("Carlos");
-                SN.Follow("Laura");
-                SN.Follow("Anonimo");
+                SN.Follow(user2);
+                SN.Follow(user3);
+                SN.Follow(user4);
+                SN.Follow(user5);
                 SN.Logout();
 
                 _ = SN.Login("Maria", "abc");
-                SN.Follow("Simon");
-                SN.Follow("Carlos");
-                SN.Follow("Laura");
-                SN.Follow("Anonimo");
+                SN.Follow(user1);
+                SN.Follow(user3);
+                SN.Follow(user4);
+                SN.Follow(user5);
                 SN.Logout();
 
                 _ = SN.Login("Carlos", "1a2b3c4d");
-                SN.Follow("Simon");
-                SN.Follow("Maria");
-                SN.Follow("Laura");
-                SN.Follow("Anonimo");
+                SN.Follow(user1);
+                SN.Follow(user2);
+                SN.Follow(user4);
+                SN.Follow(user5);
                 SN.Logout();
 
                 _ = SN.Login("Laura", "contraseña");
-                SN.Follow("Simon");
-                SN.Follow("Maria");
-                SN.Follow("Carlos");
-                SN.Follow("Anonimo");
+                SN.Follow(user1);
+                SN.Follow(user2);
+                SN.Follow(user3);
+                SN.Follow(user5);
                 SN.Logout();
 
                 _ = SN.Login("Anonimo", "****");
-                SN.Follow("Simon");
-                SN.Follow("Maria");
-                SN.Follow("Carlos");
-                SN.Follow("Laura");
+                SN.Follow(user1);
+                SN.Follow(user2);
+                SN.Follow(user3);
+                SN.Follow(user4);
                 SN.Logout();
 
 
@@ -101,33 +109,33 @@ namespace Red_Social
                 SN.Logout();
 
                 // Se hacen post a cuentas de otros
-                List<string> users = new List<string>();
+                List<User> users = new List<User>();
 
-                users.Add("Maria");
-                users.Add("Carlos");
-                users.Add("Laura");
-                users.Add("Anonimo");
+                users.Add(user2);
+                users.Add(user3);
+                users.Add(user4);
+                users.Add(user5);
                 _ = SN.Login("Simon", "123");
                 SN.Post("text", "Este es el primer post dirijido a otros", users);
                 SN.Logout();
 
                 users.Clear();
-                users.Add("Carlos");
-                users.Add("Laura");
-                users.Add("Anonimo");
+                users.Add(user3);
+                users.Add(user4);
+                users.Add(user5);
                 _ = SN.Login("Maria", "abc");
                 SN.Post("text", "Este es el segundo post dirijido a otros", users);
                 SN.Logout();
 
                 users.Clear();
-                users.Add("Laura");
-                users.Add("Anonimo");
+                users.Add(user4);
+                users.Add(user5);
                 _ = SN.Login("Carlos", "1a2b3c4d");
                 SN.Post("text", "Este es el tercer post dirijido a otros", users);
                 SN.Logout();
 
                 users.Clear();
-                users.Add("Anonimo");
+                users.Add(user5);
                 _ = SN.Login("Laura", "contraseña");
                 SN.Post("text", "Este es el cuarto post dirijido a otros", users);
                 SN.Logout();

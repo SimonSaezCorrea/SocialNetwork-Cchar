@@ -19,9 +19,10 @@ namespace Red_Social
     /// </summary>
     public partial class AbrirComentario : Window
     {
-        public static ListBox ListaDeComentarios;
+        public static List<ListBox> ListaDeComentariosAnterior;
         public AbrirComentario()
         {
+
             InitializeComponent();
 
             ResizeMode = ResizeMode.NoResize;
@@ -41,13 +42,33 @@ namespace Red_Social
                 listComentarios.Add(comment);
             }
             ListComentarios.ItemsSource = listComentarios;
+
+            if (ListaDeComentariosAnterior == null)
+            {
+                ListaDeComentariosAnterior = new List<ListBox>();
+            }
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            Interaccion I = new Interaccion();
-            I.Show();
+            if(ListaDeComentariosAnterior == null || ListaDeComentariosAnterior.Count == 0)
+            {
+                Hide();
+                AbrirPost AP = new AbrirPost();
+                AP.Show();
+            }
+            else
+            {
+                Console.WriteLine("Cantidad = "+ ListaDeComentariosAnterior.Count);
+                AbrirPost.ListaDeComentarios = ListaDeComentariosAnterior[ListaDeComentariosAnterior.Count - 1];
+                Console.WriteLine("Cantidad = "+ ListaDeComentariosAnterior.Count);
+                ListaDeComentariosAnterior.RemoveAt(ListaDeComentariosAnterior.Count - 1);
+                Console.WriteLine("Cantidad = "+ ListaDeComentariosAnterior.Count+"\n\n");
+                Hide();
+                AbrirComentario I = new AbrirComentario();
+                I.Show();
+            }
+            
         }
 
         private void Comentar_Click(object sender, RoutedEventArgs e)
@@ -65,6 +86,7 @@ namespace Red_Social
                 if (index != 0)
                 {
                     Hide();
+                    ListaDeComentariosAnterior.Add(AbrirPost.ListaDeComentarios);
                     AbrirPost.ListaDeComentarios = ListComentarios;
                     AbrirComentario ACC = new AbrirComentario();
                     ACC.Show();

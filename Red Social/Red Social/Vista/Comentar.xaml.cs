@@ -37,8 +37,8 @@ namespace Red_Social
                 MainWindow.SN.Comment(publicacion, content);
 
                 Hide();
-                Interaccion I = new Interaccion();
-                I.Show();
+                AbrirPost AP = new AbrirPost();
+                AP.Show();
             }
             else
             {
@@ -50,8 +50,8 @@ namespace Red_Social
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            Interaccion I = new Interaccion();
-            I.Show();
+            AbrirPost AP = new AbrirPost();
+            AP.Show();
         }
     }
 }

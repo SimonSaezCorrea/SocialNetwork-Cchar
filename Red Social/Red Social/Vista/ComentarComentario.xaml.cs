@@ -38,8 +38,8 @@ namespace Red_Social
 
 
                 Hide();
-                Interaccion I = new Interaccion();
-                I.Show();
+                AbrirComentario AB = new AbrirComentario();
+                AB.Show();
             }
             else
             {
@@ -51,8 +51,8 @@ namespace Red_Social
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            Interaccion I = new Interaccion();
-            I.Show();
+            AbrirComentario AB = new AbrirComentario();
+            AB.Show();
         }
     }
 }

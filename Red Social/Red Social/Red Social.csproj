@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vista\Compartir.xaml.cs">
+      <DependentUpon>Compartir.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Seguir.xaml.cs">
       <DependentUpon>Seguir.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
     </Compile>
     <Compile Include="Modelo\Socialnetwork.cs" />
     <Compile Include="Modelo\User.cs" />
+    <Page Include="Vista\Compartir.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vista\Seguir.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,11 +167,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Like.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Ojo_Descubierto.jpg" />
     <Resource Include="Images\Ojo_Escondido.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Compartir.png" />
+    <Resource Include="Images\Like.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

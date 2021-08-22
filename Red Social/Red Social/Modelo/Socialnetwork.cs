@@ -98,23 +98,19 @@ namespace Red_Social
          * @param content Contenido de la publicion que se va a hacer.
          * @param listStringUser Arreglo de nombres de usuarios a enviar la publicacion.
          */
-        public void Post(string typePost, string content, List<string> listStringUser)
+        public void Post(string typePost, string content, List<User> listStringUser)
         {
             User author = SearchUserActive();
             bool seEnvioUno = false;
             if (author != null)
             {
                 Post post = new Post(CreateIDPost(), author, DateTime.Now, content, typePost);
-                foreach (string nameUser in listStringUser)
+                foreach (User user in listStringUser)
                 {
-                    if (ExistUser(nameUser))
+                    if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
                     {
-                        User user = SearchUser(nameUser);
-                        if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
-                        {
-                            user.AddListPost(post);
-                            seEnvioUno = true;
-                        }
+                        user.AddListPost(post);
+                        seEnvioUno = true;
                     }
                 }
                 if (seEnvioUno)
@@ -129,18 +125,13 @@ namespace Red_Social
          * Es decir que un user1 no puede seguir a user1, porque no se puede seguir a si mismo.
          * @param name El nombre del usuario a seguir.
          */
-        public void Follow(string name)
+        public void Follow(User user)
         {
             User userConnect = SearchUserActive();
-            if (!name.Equals(userConnect.Name))
+            if (!user.Equals(userConnect))
             {
-                if (ExistUser(name))
-                {
-                    User user = SearchUser(name);
-
-                    userConnect.Followed.AddListFollows(user);
-                    user.Followers.AddListFollows(userConnect);
-                }
+                userConnect.Followed.AddListFollows(user);
+                user.Followers.AddListFollows(userConnect);
             }
 
         }
@@ -154,24 +145,21 @@ namespace Red_Social
          * @param idPost Es el id de la publicacion.
          * @param listUser Un arreglo de usuarios a la que va dirijida.
          */
-        public void Share(int idPost, List<string> listUser)
+        public void Share(Post Posting, List<User> listUser)
         {
-            Post post = SearchPost(idPost);
-            foreach (string nameUser in listUser)
+            foreach (User Usuario in listUser)
             {
-                if (ExistUser(nameUser))
+                Console.WriteLine("Usuario = " + Usuario.Name);
+                if (Usuario.Name.Equals(SearchUserActive().Name))
                 {
-                    User user = SearchUser(nameUser);
-                    if (user.Name.Equals(SearchUserActive().Name))
-                    {
-                        user.AddListPostShare(post, DateTime.Now);
-                    }
-                    else if (user.Followers.ExistFollow(SearchUserActive()) && user.Followed.ExistFollow(SearchUserActive()))
-                    {
-                        user.AddListPostShare(post, DateTime.Now);
-                    }
+                    Usuario.AddListPostShare(Posting, DateTime.Now);
+                    Posting.AmountShare += 1;
                 }
-
+                else if (Usuario.Followers.ExistFollow(SearchUserActive()) && Usuario.Followed.ExistFollow(SearchUserActive()))
+                {
+                    Usuario.AddListPostShare(Posting, DateTime.Now);
+                    Posting.AmountShare += 1;
+                }
             }
         }
 

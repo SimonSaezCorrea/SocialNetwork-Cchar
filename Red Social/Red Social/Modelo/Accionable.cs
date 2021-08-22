@@ -16,11 +16,11 @@ namespace Red_Social
 
         void Post(string typePost, string content);
 
-        void Post(string typePost, string content, List<string> listStringUser);
+        void Post(string typePost, string content, List<User> listStringUser);
 
-        void Follow(string name);
+        void Follow(User user);
 
-        void Share(int idPost, List<string> listUser);
+        void Share(Post Posting, List<User> listUser);
 
         void Visualize();
 
