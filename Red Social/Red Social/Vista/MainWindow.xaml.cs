@@ -268,5 +268,41 @@ namespace Red_Social
             }
 
         }
+
+        private void Aceptar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+            {
+                string names = name.Text;
+                string pass = Password_Ocultar.Visibility.Equals(Visibility.Visible) ? Password_Ocultar.Password : Password_Mostrar.Text;
+
+                if (!names.Equals(""))
+                {
+                    if (!pass.Equals(""))
+                    {
+                        if (SN.Login(names, pass))
+                        {
+                            Hide();
+
+                            Interaccion I = new Interaccion();
+                            I.Show();
+
+                        }
+                        else
+                        {
+                            _ = MessageBox.Show("El usuario no existe", "");
+                        }
+                    }
+                    else
+                    {
+                        _ = MessageBox.Show("Debe añadir una contraseña", "Error");
+                    }
+                }
+                else
+                {
+                    _ = MessageBox.Show("Debe añadir un usuario", "Error");
+                }
+            }
+        }
     }
 }

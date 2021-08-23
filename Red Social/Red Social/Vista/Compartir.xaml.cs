@@ -128,5 +128,32 @@ namespace Red_Social
             AbrirPost AP = new AbrirPost();
             AP.Show();
         }
+
+        private void Aceptar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+            {
+                if (ListUser_Elegidos.Items.Count == 1)
+                {
+                    ListUser_Elegidos.Items.Add(MainWindow.SN.SearchUserActive());
+                }
+
+                List<User> listUser = new List<User>();
+                int i;
+                for (i = 1; i < ListUser_Elegidos.Items.Count; i++)
+                {
+                    User user = (User)ListUser_Elegidos.Items[i];
+                    listUser.Add(user);
+                }
+
+                Post post = (Post)Interaccion.listaDePublicaciones.SelectedItem;
+
+                MainWindow.SN.Share(post, listUser);
+
+                Hide();
+                AbrirPost AP = new AbrirPost();
+                AP.Show();
+            }
+        }
     }
 }

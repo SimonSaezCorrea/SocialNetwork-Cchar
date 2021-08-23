@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Red_Social"
         mc:Ignorable="d"
         Title="TheNewSocial" Height="400" Width="400">
-    <Grid>
+    <Grid KeyDown="Aceptar_KeyDown">
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="100,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <PasswordBox x:Name="Password_Ocultar" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" VerticalAlignment="Top" Width="200" Visibility="Visible"/>
         <TextBox x:Name="Password_Mostrar" HorizontalAlignment="Left" Height="23" Margin="100,165,0,0" VerticalAlignment="Top" Width="200" Visibility="Hidden"/>

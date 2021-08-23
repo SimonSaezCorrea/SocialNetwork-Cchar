@@ -54,5 +54,6 @@ namespace Red_Social
             AbrirComentario AB = new AbrirComentario();
             AB.Show();
         }
+
     }
 }

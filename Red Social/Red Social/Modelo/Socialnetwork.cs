@@ -105,8 +105,10 @@ namespace Red_Social
             if (author != null)
             {
                 Post post = new Post(CreateIDPost(), author, DateTime.Now, content, typePost);
-                foreach (User user in listStringUser)
+                int i;
+                for(i = 1; i < listStringUser.Count; i++)
                 {
+                    User user = listStringUser[i];
                     if (user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author))
                     {
                         user.AddListPost(post);
@@ -255,13 +257,10 @@ namespace Red_Social
             {
                 Like like = new Like(comment.CreatIdLike(), DateTime.Now, SearchUserActive());
                 User user = comment.Author;
-                if ((user.Followers.ExistFollow(author) && user.Followed.ExistFollow(author)) || user.Equals(author))
+                if (!comment.ExistUserLike(user))
                 {
-                    if (!comment.ExistUserLike(user))
-                    {
-                        comment.AddListLike(like);
-                        return true;
-                    }
+                    comment.AddListLike(like);
+                    return true;
                 }
             }
 

@@ -141,5 +141,6 @@ namespace Red_Social
             Interaccion I = new Interaccion();
             I.Show();
         }
+
     }
 }

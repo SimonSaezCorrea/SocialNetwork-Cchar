@@ -29,7 +29,7 @@ namespace Red_Social
 
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
-            
+
             string content = Contenido.Text;
             if (!content.Equals(""))
             {
@@ -44,7 +44,7 @@ namespace Red_Social
             {
                 _ = MessageBox.Show("Debe añadir un contenido al comentario", "Error");
             }
-           
+
         }
 
         private void Cancelar_Click(object sender, RoutedEventArgs e)

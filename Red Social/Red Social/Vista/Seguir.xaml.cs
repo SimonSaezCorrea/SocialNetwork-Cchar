@@ -66,5 +66,28 @@ namespace Red_Social
                 _ = MessageBox.Show("Debe elegir un usuario", "Error");
             }
         }
+
+        private void Aceptar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Enter))
+            {
+                if (ListUser.SelectedItem != null)
+                {
+                    int index = ListUser.SelectedIndex;
+                    if (index != 0)
+                    {
+                        User user = (User)ListUser.SelectedItem;
+                        MainWindow.SN.Follow(user);
+                        Hide();
+                        Interaccion I = new Interaccion();
+                        I.Show();
+                    }
+                }
+                else
+                {
+                    _ = MessageBox.Show("Debe elegir un usuario", "Error");
+                }
+            }
+        }
     }
 }

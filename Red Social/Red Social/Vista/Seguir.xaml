@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Red_Social"
         mc:Ignorable="d"
         Title="TheNewSocial" Height="450" Width="350">
-    <Grid>
+    <Grid KeyDown="Aceptar_KeyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
@@ -23,8 +23,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Usuarios" HorizontalAlignment="Left" Margin="137,5,0,0" VerticalAlignment="Top"/>
-        <Button Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="257,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Cancelar_Click"/>
-        <Button Name="Aceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Aceptar_Click"/>
+        <Label Content="Usuarios" HorizontalAlignment="Left" Margin="137,5,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
+        <Button Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="257,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Cancelar_Click" FontFamily="Comic Sans MS"/>
+        <Button Name="Aceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Aceptar_Click" FontFamily="Comic Sans MS"/>
     </Grid>
 </Window>

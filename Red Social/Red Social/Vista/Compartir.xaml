@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Red_Social"
         mc:Ignorable="d"
         Title="TheNewSocial" Height="450" Width="422.074">
-    <Grid>
+    <Grid KeyDown="Aceptar_KeyDown">
         <ListBox x:Name="ListUser" HorizontalAlignment="Left" Height="293" Margin="45,66,0,0" VerticalAlignment="Top" Width="138">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -36,8 +36,8 @@
         <Label Content="Por elegir" HorizontalAlignment="Left" Margin="45,34,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Width="138"/>
         <Button x:Name="Elegir" Content="&gt;" HorizontalAlignment="Left" Margin="188,168,0,0" VerticalAlignment="Top" Width="44" Click="Elegir_Click" FontFamily="Comic Sans MS"/>
         <Button x:Name="Retornar" Content="&lt;" HorizontalAlignment="Left" Margin="188,211,0,0" VerticalAlignment="Top" Width="44" Click="Retornar_Click" FontFamily="Comic Sans MS"/>
-        <Button Name="Acetar" Content="Aceptar" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Acetar_Click"/>
-        <Button Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="329,389,0,0" VerticalAlignment="Top" Width="75" Click="Cancelar_Click"/>
+        <Button Name="Acetar" Content="Aceptar" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="Acetar_Click" FontFamily="Comic Sans MS"/>
+        <Button Name="Cancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="329,389,0,0" VerticalAlignment="Top" Width="75" Click="Cancelar_Click" FontFamily="Comic Sans MS"/>
 
     </Grid>
 </Window>
